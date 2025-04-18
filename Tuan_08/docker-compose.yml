@@ -1,0 +1,114 @@
+version: '3.8'
+
+services:
+  # API Gateway
+  api-gateway:
+    build: ./api-gateway
+    ports:
+      - "8000:8000"
+    environment:
+      - PRODUCT_SERVICE_URL=http://product-service:8000
+      - ORDER_SERVICE_URL=http://order-service:8000
+      - CUSTOMER_SERVICE_URL=http://customer-service:8000
+    depends_on:
+      - product-service
+      - order-service
+      - customer-service
+    networks:
+      - microservices-network
+
+  # Product Service
+  product-service:
+    build: ./product-service
+    ports:
+      - "8001:8000"
+    environment:
+      - DATABASE_URL=postgresql://postgres:postgres@product-db:5432/product_db
+    depends_on:
+      - product-db
+      - rabbitmq
+    networks:
+      - microservices-network
+
+  product-db:
+    image: postgres:15
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=product_db
+    ports:
+      - "5433:5432"
+    volumes:
+      - product-db-data:/var/lib/postgresql/data
+    networks:
+      - microservices-network
+
+  # Order Service
+  order-service:
+    build: ./order-service
+    ports:
+      - "8002:8000"
+    environment:
+      - DATABASE_URL=postgresql://postgres:postgres@order-db:5432/order_db
+    depends_on:
+      - order-db
+      - rabbitmq
+    networks:
+      - microservices-network
+
+  order-db:
+    image: postgres:15
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=order_db
+    ports:
+      - "5434:5432"
+    volumes:
+      - order-db-data:/var/lib/postgresql/data
+    networks:
+      - microservices-network
+
+  # Customer Service
+  customer-service:
+    build: ./customer-service
+    ports:
+      - "8003:8000"
+    environment:
+      - DATABASE_URL=postgresql://postgres:postgres@customer-db:5432/customer_db
+    depends_on:
+      - customer-db
+      - rabbitmq
+    networks:
+      - microservices-network
+
+  customer-db:
+    image: postgres:15
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=customer_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - customer-db-data:/var/lib/postgresql/data
+    networks:
+      - microservices-network
+
+  # Message Broker (RabbitMQ)
+  rabbitmq:
+    image: rabbitmq:3-management
+    ports:
+      - "5672:5672" # AMQP port
+      - "15672:15672" # Management UI
+    networks:
+      - microservices-network
+
+networks:
+  microservices-network:
+    driver: bridge
+
+volumes:
+  product-db-data:
+  order-db-data:
+  customer-db-data:
