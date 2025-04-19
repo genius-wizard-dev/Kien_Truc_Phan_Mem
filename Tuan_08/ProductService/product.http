@@ -1,0 +1,39 @@
+GET http://localhost:3500/api/products?page=2&limit=5&category=Clothes
+
+###
+GET http://localhost:3500/api/products/67c9c3b423bf99ae1f9318d8
+
+###
+DELETE http://localhost:3500/api/products/67c5cca05d4a4541999918eb
+
+
+### 
+POST http://localhost:3500/api/products
+Content-Type: application/json
+
+{
+  "name": "Iphone 16",
+  "description": "A premium leather tote bag perfect for everyday use.",
+  "price": 399.99,
+  "category": "WomenBags",
+  "attribute": {
+    "brand": "Luettgen Luxe",
+    "description": "Spacious and durable leather tote.",
+    "isActive": true,
+    "material": "Leather",
+    "size": "Large",
+    "color": ["Black", "Tan", "Red"],
+    "bagType": "Tote"
+  },
+  "images": [
+    "https://loremflickr.com/640/480/handbag?lock=4666984922277096",
+    "https://loremflickr.com/640/480/handbag?lock=123456789"
+  ],
+  "thumbnailImage": "https://loremflickr.com/200/200/handbag?lock=8422139310709839",
+  "ratings": {
+    "average": 4.2,
+    "count": 100
+  },
+  "isActive": false,
+  "tags": ["new", "luxury", "sale"]
+}

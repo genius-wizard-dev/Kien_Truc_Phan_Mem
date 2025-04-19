@@ -1,0 +1,12 @@
+@url=http://localhost:5000
+
+### Create inventory
+POST {{url}}/api/inventories/
+Content-Type: application/json
+
+{
+    "shop_id": "shop_001",
+    "product_name": "Iphone 15",
+    "product_id": "6802a5265891565138487b75",
+    "total_quantity": 100
+}

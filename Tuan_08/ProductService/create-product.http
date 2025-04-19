@@ -1,0 +1,651 @@
+
+### 1. Clothes
+POST http://localhost:3500/api/products
+Content-Type: application/json
+
+{
+  "name": "Cotton Graphic Tee",
+  "description": "A comfortable cotton t-shirt with a trendy graphic print.",
+  "price": 19.99,
+  "category": "Clothes",
+  "attribute": {
+    "brand": "TrendyWear",
+    "description": "Soft and breathable fabric.",
+    "isActive": true,
+    "material": "Cotton",
+    "size": ["S", "M", "L"],
+    "color": ["Black", "White"],
+    "pattern": ["Graphic"]
+  },
+  "images": ["https://loremflickr.com/640/480/fashion"],
+  "thumbnailImage": "https://loremflickr.com/200/200/fashion",
+  "ratings": {
+    "average": 4.5,
+    "count": 120
+  },
+  "isActive": true,
+  "tags": ["casual", "cotton"]
+}
+
+### 2. Mobile
+POST http://localhost:3500/api/products
+Content-Type: application/json
+
+{
+  "name": "Galaxy Pro 12",
+  "description": "A high-performance smartphone with a stunning display.",
+  "price": 799.99,
+  "category": "Mobile",
+  "attribute": {
+    "brand": "Samsung",
+    "description": "Latest model with advanced features.",
+    "isActive": true,
+    "screenSize": "6.7 inches",
+    "ram": ["8GB"],
+    "storage": ["128GB", "256GB"],
+    "operatingSystem": "Android",
+    "battery": "4500mAh",
+    "camera": {
+      "rear": ["48MP", "12MP"],
+      "front": ["20MP"]
+    },
+    "color": ["Black", "Silver"]
+  },
+  "images": ["https://loremflickr.com/640/480/smartphone"],
+  "thumbnailImage": "https://loremflickr.com/200/200/smartphone",
+  "ratings": {
+    "average": 4.8,
+    "count": 300
+  },
+  "isActive": true,
+  "tags": ["tech", "smartphone"]
+}
+
+### 3. Electronics
+POST http://localhost:3500/api/products
+Content-Type: application/json
+
+{
+  "name": "LED Smart TV 55\"",
+  "description": "Ultra HD smart television with streaming capabilities.",
+  "price": 549.99,
+  "category": "Electronics",
+  "attribute": {
+    "brand": "VisionTech",
+    "description": "Energy-efficient LED display.",
+    "isActive": true,
+    "powerConsumption": "120W",
+    "dimensions": "48.5 x 28 x 3 inches",
+    "connectivity": ["HDMI", "Wi-Fi", "Bluetooth"],
+    "warranty": "2 years"
+  },
+  "images": ["https://loremflickr.com/640/480/television"],
+  "thumbnailImage": "https://loremflickr.com/200/200/television",
+  "ratings": {
+    "average": 4.6,
+    "count": 85
+  },
+  "isActive": true,
+  "tags": ["electronics", "smart-tv"]
+}
+
+### 4. Computer
+POST http://localhost:3500/api/products
+Content-Type: application/json
+
+{
+  "name": "UltraBook Pro 15",
+  "description": "Lightweight laptop for professional use.",
+  "price": 1299.99,
+  "category": "Computer",
+  "attribute": {
+    "brand": "TechNova",
+    "description": "High-performance computing.",
+    "isActive": true,
+    "processor": "Intel i7-12th Gen",
+    "ram": ["16GB"],
+    "storageType": "SSD",
+    "operatingSystem": ["Windows 11"]
+  },
+  "images": ["https://loremflickr.com/640/480/laptop"],
+  "thumbnailImage": "https://loremflickr.com/200/200/laptop",
+  "ratings": {
+    "average": 4.7,
+    "count": 150
+  },
+  "isActive": true,
+  "tags": ["laptop", "tech"]
+}
+
+### 5. Camera
+POST http://localhost:3500/api/products
+Content-Type: application/json
+
+{
+  "name": "DSLR Pro X500",
+  "description": "Professional-grade DSLR camera.",
+  "price": 899.99,
+  "category": "Camera",
+  "attribute": {
+    "brand": "PhotoMaster",
+    "description": "High-resolution imaging.",
+    "isActive": true,
+    "resolution": "32MP",
+    "lensType": ["18-55mm"],
+    "sensorType": "APS-C",
+    "videoResolution": ["4K"]
+  },
+  "images": ["https://loremflickr.com/640/480/camera"],
+  "thumbnailImage": "https://loremflickr.com/200/200/camera",
+  "ratings": {
+    "average": 4.9,
+    "count": 75
+  },
+  "isActive": true,
+  "tags": ["photography", "camera"]
+}
+
+### 6. Watch
+POST http://localhost:3500/api/products
+Content-Type: application/json
+
+{
+  "name": "Smart Fitness Watch",
+  "description": "Water-resistant smartwatch with fitness tracking.",
+  "price": 149.99,
+  "category": "Watch",
+  "attribute": {
+    "brand": "FitTime",
+    "description": "Monitor your daily activities.",
+    "isActive": true,
+    "watchType": "Smartwatch",
+    "strapMaterial": "Silicone",
+    "waterResistance": "50m",
+    "features": ["Heart Rate Monitor", "Step Counter"]
+  },
+  "images": ["https://loremflickr.com/640/480/watch"],
+  "thumbnailImage": "https://loremflickr.com/200/200/watch",
+  "ratings": {
+    "average": 4.4,
+    "count": 200
+  },
+  "isActive": true,
+  "tags": ["fitness", "smartwatch"]
+}
+
+### 7. Beauty
+POST http://localhost:3500/api/products
+Content-Type: application/json
+
+{
+  "name": "Hydrating Face Cream",
+  "description": "Daily moisturizer for all skin types.",
+  "price": 29.99,
+  "category": "Beauty",
+  "attribute": {
+    "brand": "GlowEssentials",
+    "description": "Deep hydration formula.",
+    "isActive": true,
+    "type": "Moisturizer",
+    "shade": [],
+    "skinType": ["Dry", "Normal"],
+    "expirationDate": "2026-06-01"
+  },
+  "images": ["https://loremflickr.com/640/480/beauty"],
+  "thumbnailImage": "https://loremflickr.com/200/200/beauty",
+  "ratings": {
+    "average": 4.3,
+    "count": 90
+  },
+  "isActive": true,
+  "tags": ["skincare", "beauty"]
+}
+
+### 8. Health
+POST http://localhost:3500/api/products
+Content-Type: application/json
+
+{
+  "name": "Vitamin C Tablets",
+  "description": "Immune-boosting vitamin supplement.",
+  "price": 15.99,
+  "category": "Health",
+  "attribute": {
+    "brand": "HealthPlus",
+    "description": "Supports immunity.",
+    "isActive": true,
+    "category": "Vitamin",
+    "dosage": "1 tablet daily",
+    "ingredients": ["Vitamin C", "Zinc"],
+    "expirationDate": "2026-03-01"
+  },
+  "images": ["https://loremflickr.com/640/480/health"],
+  "thumbnailImage": "https://loremflickr.com/200/200/health",
+  "ratings": {
+    "average": 4.5,
+    "count": 50
+  },
+  "isActive": true,
+  "tags": ["health", "vitamins"]
+}
+
+### 9. Grocery
+POST http://localhost:3500/api/products
+Content-Type: application/json
+
+{
+  "name": "Organic Almonds",
+  "description": "Premium quality organic almonds.",
+  "price": 12.99,
+  "category": "Grocery",
+  "attribute": {
+    "brand": "NatureFresh",
+    "description": "Unsalted and roasted.",
+    "isActive": true,
+    "category": "Snacks",
+    "weight": "250g",
+    "nutritionalInfo": "Calories: 160 per serving",
+    "expirationDate": "2025-12-01"
+  },
+  "images": ["https://loremflickr.com/640/480/food"],
+  "thumbnailImage": "https://loremflickr.com/200/200/food",
+  "ratings": {
+    "average": 4.6,
+    "count": 80
+  },
+  "isActive": true,
+  "tags": ["grocery", "snacks"]
+}
+
+### 10. Toy
+POST http://localhost:3500/api/products
+Content-Type: application/json
+
+{
+  "name": "Building Block Set",
+  "description": "Colorful blocks for creative play.",
+  "price": 24.99,
+  "category": "Toy",
+  "attribute": {
+    "brand": "PlayFun",
+    "description": "Encourages creativity.",
+    "isActive": true,
+    "ageRange": "3-6 years",
+    "material": "Plastic",
+    "safetyFeatures": ["Non-Toxic"],
+    "type": "Building Toy"
+  },
+  "images": ["https://loremflickr.com/640/480/toy"],
+  "thumbnailImage": "https://loremflickr.com/200/200/toy",
+  "ratings": {
+    "average": 4.7,
+    "count": 110
+  },
+  "isActive": true,
+  "tags": ["toys", "kids"]
+}
+
+### 11. MenShoes
+POST http://localhost:3500/api/products
+Content-Type: application/json
+
+{
+  "name": "Leather Sneakers",
+  "description": "Stylish sneakers for everyday wear.",
+  "price": 79.99,
+  "category": "MenShoes",
+  "attribute": {
+    "brand": "StepUp",
+    "description": "Durable leather shoes.",
+    "isActive": true,
+    "material": "Leather",
+    "size": ["9", "10", "11"],
+    "color": ["Black"],
+    "shoeType": "Sneakers"
+  },
+  "images": ["https://loremflickr.com/640/480/shoes"],
+  "thumbnailImage": "https://loremflickr.com/200/200/shoes",
+  "ratings": {
+    "average": 4.4,
+    "count": 95
+  },
+  "isActive": true,
+  "tags": ["menswear", "shoes"]
+}
+
+
+### 12. WomenShoes
+POST http://localhost:3500/api/products
+Content-Type: application/json
+
+{
+  "name": "Suede Heels",
+  "description": "Elegant high heels for special occasions.",
+  "price": 89.99,
+  "category": "WomenShoes",
+  "attribute": {
+    "brand": "ChicFeet",
+    "description": "Comfortable suede heels.",
+    "isActive": true,
+    "material": "Suede",
+    "size": ["6", "7", "8"],
+    "color": ["Nude"],
+    "heelHeight": "3 inches"
+  },
+  "images": ["https://loremflickr.com/640/480/high-heels"],
+  "thumbnailImage": "https://loremflickr.com/200/200/high-heels",
+  "ratings": {
+    "average": 4.5,
+    "count": 70
+  },
+  "isActive": true,
+  "tags": ["womenswear", "heels"]
+}
+
+### 13. WomenBags
+POST http://localhost:3500/api/products
+Content-Type: application/json
+
+{
+  "name": "Leather Tote Bag",
+  "description": "Spacious tote for daily use.",
+  "price": 99.99,
+  "category": "WomenBags",
+  "attribute": {
+    "brand": "BagLady",
+    "description": "Premium leather bag.",
+    "isActive": true,
+    "material": "Leather",
+    "size": "Medium",
+    "color": ["Tan"],
+    "bagType": "Tote"
+  },
+  "images": ["https://loremflickr.com/640/480/handbag"],
+  "thumbnailImage": "https://loremflickr.com/200/200/handbag",
+  "ratings": {
+    "average": 4.6,
+    "count": 60
+  },
+  "isActive": true,
+  "tags": ["womenswear", "bags"]
+}
+
+### 14. FashionAccessories
+POST http://localhost:3500/api/products
+Content-Type: application/json
+
+{
+  "name": "Gold Necklace",
+  "description": "Elegant necklace for any occasion.",
+  "price": 59.99,
+  "category": "FashionAccessories",
+  "attribute": {
+    "brand": "JewelTrend",
+    "description": "18K gold plated.",
+    "isActive": true,
+    "material": "Gold",
+    "accessoryType": "Necklace",
+    "color": ["Gold"],
+    "size": "Adjustable"
+  },
+  "images": ["https://loremflickr.com/640/480/jewelry"],
+  "thumbnailImage": "https://loremflickr.com/200/200/jewelry",
+  "ratings": {
+    "average": 4.8,
+    "count": 45
+  },
+  "isActive": true,
+  "tags": ["accessories", "jewelry"]
+}
+
+### 15. BooksStationery
+POST http://localhost:3500/api/products
+Content-Type: application/json
+
+{
+  "name": "Mystery Novel",
+  "description": "Gripping mystery book by a bestselling author.",
+  "price": 14.99,
+  "category": "BooksStationery",
+  "attribute": {
+    "brand": "LitPress",
+    "description": "Hardcover edition.",
+    "isActive": true,
+    "category": "Book",
+    "genre": "Mystery",
+    "author": "Jane Doe"
+  },
+  "images": ["https://loremflickr.com/640/480/book"],
+  "thumbnailImage": "https://loremflickr.com/200/200/book",
+  "ratings": {
+    "average": 4.7,
+    "count": 130
+  },
+  "isActive": true,
+  "tags": ["books", "mystery"]
+}
+
+### 16. MenBags
+POST http://localhost:3500/api/products
+Content-Type: application/json
+
+{
+  "name": "Nylon Backpack",
+  "description": "Durable backpack for daily use.",
+  "price": 69.99,
+  "category": "MenBags",
+  "attribute": {
+    "brand": "GearMan",
+    "description": "Water-resistant material.",
+    "isActive": true,
+    "material": "Nylon",
+    "size": "Large",
+    "color": ["Grey"],
+    "bagType": "Backpack"
+  },
+  "images": ["https://loremflickr.com/640/480/backpack"],
+  "thumbnailImage": "https://loremflickr.com/200/200/backpack",
+  "ratings": {
+    "average": 4.5,
+    "count": 85
+  },
+  "isActive": true,
+  "tags": ["menswear", "bags"]
+}
+
+### 17. Pet
+POST http://localhost:3500/api/products
+Content-Type: application/json
+
+{
+  "name": "Dog Chew Toy",
+  "description": "Durable toy for dogs.",
+  "price": 9.99,
+  "category": "Pet",
+  "attribute": {
+    "brand": "PetJoy",
+    "description": "Safe for chewing.",
+    "isActive": true,
+    "petType": "Dog",
+    "productType": "Toy",
+    "weight": "200g",
+    "suitableFor": ["Adult"]
+  },
+  "images": ["https://loremflickr.com/640/480/pet"],
+  "thumbnailImage": "https://loremflickr.com/200/200/pet",
+  "ratings": {
+    "average": 4.6,
+    "count": 65
+  },
+  "isActive": true,
+  "tags": ["pets", "dog"]
+}
+
+### 18. ToolsHomeImprovement
+POST http://localhost:3500/api/products
+Content-Type: application/json
+
+{
+  "name": "Cordless Drill",
+  "description": "Powerful drill for home projects.",
+  "price": 89.99,
+  "category": "ToolsHomeImprovement",
+  "attribute": {
+    "brand": "ToolTech",
+    "description": "Rechargeable battery.",
+    "isActive": true,
+    "toolType": "Drill",
+    "material": "Steel",
+    "powerSource": "Battery",
+    "usage": ["Woodworking"]
+  },
+  "images": ["https://loremflickr.com/640/480/tools"],
+  "thumbnailImage": "https://loremflickr.com/200/200/tools",
+  "ratings": {
+    "average": 4.7,
+    "count": 90
+  },
+  "isActive": true,
+  "tags": ["tools", "diy"]
+}
+
+### 19. MomsKidsBabies
+POST http://localhost:3500/api/products
+Content-Type: application/json
+
+{
+  "name": "Baby Diapers",
+  "description": "Soft and absorbent diapers for infants.",
+  "price": 19.99,
+  "category": "MomsKidsBabies",
+  "attribute": {
+    "brand": "BabySoft",
+    "description": "Gentle on skin.",
+    "isActive": true,
+    "productType": "Diapers",
+    "ageRange": "0-6 months",
+    "material": "Cotton",
+    "safetyFeatures": ["BPA-Free"]
+  },
+  "images": ["https://loremflickr.com/640/480/baby"],
+  "thumbnailImage": "https://loremflickr.com/200/200/baby",
+  "ratings": {
+    "average": 4.8,
+    "count": 120
+  },
+  "isActive": true,
+  "tags": ["baby", "diapers"]
+}
+
+### 20. HomeLiving
+POST http://localhost:3500/api/products
+Content-Type: application/json
+
+{
+  "name": "Ceramic Vase",
+  "description": "Decorative vase for home decor.",
+  "price": 34.99,
+  "category": "HomeLiving",
+  "attribute": {
+    "brand": "HomeStyle",
+    "description": "Handcrafted design.",
+    "isActive": true,
+    "productType": "Decor",
+    "material": "Ceramic",
+    "dimensions": "8 x 4 inches",
+    "color": ["White"]
+  },
+  "images": ["https://loremflickr.com/640/480/decor"],
+  "thumbnailImage": "https://loremflickr.com/200/200/decor",
+  "ratings": {
+    "average": 4.5,
+    "count": 55
+  },
+  "isActive": true,
+  "tags": ["home", "decor"]
+}
+
+
+### 21. SportOutdoor
+POST http://localhost:3500/api/products
+Content-Type: application/json
+
+{
+  "name": "Camping Tent",
+  "description": "Waterproof tent for outdoor adventures.",
+  "price": 129.99,
+  "category": "SportOutdoor",
+  "attribute": {
+    "brand": "OutdoorPeak",
+    "description": "Easy to assemble.",
+    "isActive": true,
+    "activityType": "Camping",
+    "material": "Nylon",
+    "size": "4-person",
+    "features": ["Waterproof"]
+  },
+  "images": ["https://loremflickr.com/640/480/camping"],
+  "thumbnailImage": "https://loremflickr.com/200/200/camping",
+  "ratings": {
+    "average": 4.6,
+    "count": 75
+  },
+  "isActive": true,
+  "tags": ["outdoor", "camping"]
+}
+
+### 22. KidFashion
+POST http://localhost:3500/api/products
+Content-Type: application/json
+
+{
+  "name": "Kids Denim Jacket",
+  "description": "Stylish jacket for kids.",
+  "price": 39.99,
+  "category": "KidFashion",
+  "attribute": {
+    "brand": "KidTrend",
+    "description": "Durable fabric.",
+    "isActive": true,
+    "material": "Cotton",
+    "size": ["S", "M"],
+    "color": ["Blue"],
+    "ageRange": "4-6 years"
+  },
+  "images": ["https://loremflickr.com/640/480/kids-fashion"],
+  "thumbnailImage": "https://loremflickr.com/200/200/kids-fashion",
+  "ratings": {
+    "average": 4.4,
+    "count": 60
+  },
+  "isActive": true,
+  "tags": ["kids", "fashion"]
+}
+
+### 23. HomeCare
+POST http://localhost:3500/api/products
+Content-Type: application/json
+
+{
+  "name": "Lavender Detergent",
+  "description": "Gentle laundry detergent with lavender scent.",
+  "price": 14.99,
+  "category": "HomeCare",
+  "attribute": {
+    "brand": "CleanHome",
+    "description": "Effective stain removal.",
+    "isActive": true,
+    "productType": "Detergent",
+    "volume": "1L",
+    "fragrance": "Lavender",
+    "usage": ["Laundry"]
+  },
+  "images": ["https://loremflickr.com/640/480/cleaning"],
+  "thumbnailImage": "https://loremflickr.com/200/200/cleaning",
+  "ratings": {
+    "average": 4.5,
+    "count": 80
+  },
+  "isActive": true,
+  "tags": ["homecare", "cleaning"]
+}

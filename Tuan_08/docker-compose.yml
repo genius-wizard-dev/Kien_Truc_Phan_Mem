@@ -1,114 +1,48 @@
-version: '3.8'
-
+version: "3.9"
+name: G18
 services:
-  # API Gateway
-  api-gateway:
-    build: ./api-gateway
+  kafka:
+    image: 'bitnami/kafka:3.7.0'
+    container_name: kafka
+    hostname: kafka
     ports:
-      - "8000:8000"
+      - '9094:9094'
     environment:
-      - PRODUCT_SERVICE_URL=http://product-service:8000
-      - ORDER_SERVICE_URL=http://order-service:8000
-      - CUSTOMER_SERVICE_URL=http://customer-service:8000
-    depends_on:
-      - product-service
-      - order-service
-      - customer-service
-    networks:
-      - microservices-network
+      - KAFKA_CFG_NODE_ID=0
+      - KAFKA_CFG_PROCESS_ROLES=controller,broker
+      - KAFKA_CFG_CONTROLLER_QUORUM_VOTERS=0@kafka:9093
+      - KAFKA_CFG_LISTENERS=PLAINTEXT://:9092,CONTROLLER://:9093,EXTERNAL://:9094
+      - KAFKA_CFG_ADVERTISED_LISTENERS=PLAINTEXT://kafka:9092,EXTERNAL://localhost:9094
+      - KAFKA_CFG_LISTENER_SECURITY_PROTOCOL_MAP=CONTROLLER:PLAINTEXT,EXTERNAL:PLAINTEXT,PLAINTEXT:PLAINTEXT
+      - KAFKA_CFG_CONTROLLER_LISTENER_NAMES=CONTROLLER
+    healthcheck:
+      test: ["CMD", "kafka-topics.sh", "--bootstrap-server", "kafka:9092", "--list"]
+      interval: 10s
+      retries: 5
+      start_period: 10s
 
-  # Product Service
-  product-service:
-    build: ./product-service
-    ports:
-      - "8001:8000"
-    environment:
-      - DATABASE_URL=postgresql://postgres:postgres@product-db:5432/product_db
-    depends_on:
-      - product-db
-      - rabbitmq
-    networks:
-      - microservices-network
+  # IndentifyService:
+  #   build:
+  #     context: ./IndentifyService
+  #     dockerfile: Dockerfile
+  #   container_name: IndentifyService
+  #   depends_on:
+  #     kafka:
+  #       condition: service_healthy
+  #   environment:
+  #     - SPRING_KAFKA_BOOTSTRAP_SERVERS=kafka:9092
+  #   ports:
+  #     - "8080:8080"
 
-  product-db:
-    image: postgres:15
-    environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
-      - POSTGRES_DB=product_db
-    ports:
-      - "5433:5432"
-    volumes:
-      - product-db-data:/var/lib/postgresql/data
-    networks:
-      - microservices-network
-
-  # Order Service
-  order-service:
-    build: ./order-service
-    ports:
-      - "8002:8000"
-    environment:
-      - DATABASE_URL=postgresql://postgres:postgres@order-db:5432/order_db
-    depends_on:
-      - order-db
-      - rabbitmq
-    networks:
-      - microservices-network
-
-  order-db:
-    image: postgres:15
-    environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
-      - POSTGRES_DB=order_db
-    ports:
-      - "5434:5432"
-    volumes:
-      - order-db-data:/var/lib/postgresql/data
-    networks:
-      - microservices-network
-
-  # Customer Service
-  customer-service:
-    build: ./customer-service
-    ports:
-      - "8003:8000"
-    environment:
-      - DATABASE_URL=postgresql://postgres:postgres@customer-db:5432/customer_db
-    depends_on:
-      - customer-db
-      - rabbitmq
-    networks:
-      - microservices-network
-
-  customer-db:
-    image: postgres:15
-    environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
-      - POSTGRES_DB=customer_db
-    ports:
-      - "5432:5432"
-    volumes:
-      - customer-db-data:/var/lib/postgresql/data
-    networks:
-      - microservices-network
-
-  # Message Broker (RabbitMQ)
-  rabbitmq:
-    image: rabbitmq:3-management
-    ports:
-      - "5672:5672" # AMQP port
-      - "15672:15672" # Management UI
-    networks:
-      - microservices-network
-
-networks:
-  microservices-network:
-    driver: bridge
-
-volumes:
-  product-db-data:
-  order-db-data:
-  customer-db-data:
+  # ProfileService:
+  #   build:
+  #     context: ./ProfileService
+  #     dockerfile: Dockerfile
+  #   container_name: ProfileService
+  #   depends_on:
+  #     kafka:
+  #       condition: service_healthy
+  #   environment:
+  #     - SPRING_KAFKA_BOOTSTRAP_SERVERS=kafka:9092
+  #   ports:
+  #     - "8088:8088"
