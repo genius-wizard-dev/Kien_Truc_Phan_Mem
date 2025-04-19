@@ -1,0 +1,14 @@
+
+services:
+  nodejs:
+    image: node:18
+    container_name: nodejs_app
+    working_dir: /app
+    volumes:
+      - ./app:/app
+    ports:
+      - "3056:3056"
+    command: bash -c "npm install && npm start"
+
+volumes:
+  app:

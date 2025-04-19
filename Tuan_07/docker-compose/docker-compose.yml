@@ -1,0 +1,8 @@
+name: ubuntu_test
+
+services:
+  ubuntu:
+    image: ubuntu:latest
+    container_name: ubuntu_test
+    command: sleep infinity
+    tty: true

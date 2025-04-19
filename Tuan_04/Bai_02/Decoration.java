@@ -67,3 +67,4 @@ public class Decoration {
     complexPayment.pay(100.0);
   }
 }
+
